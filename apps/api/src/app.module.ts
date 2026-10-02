@@ -6,6 +6,7 @@ import { validateEnv } from './config/env.validation';
 import { HealthModule } from './modules/health/health.module';
 import { ProjectsModule } from './modules/projects/projects.module';
 import { SitesModule } from './modules/sites/sites.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { SitesModule } from './modules/sites/sites.module';
     HealthModule,
     ProjectsModule,
     SitesModule,
+    DashboardModule,
   ],
 })
 export class AppModule {}
