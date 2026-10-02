@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cordio
+      POSTGRES_PASSWORD: cordio
+      POSTGRES_DB: cordio
+    ports:
+      - "5432:5432"
+    volumes:
+      - cordio_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cordio"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  cordio_pg:
