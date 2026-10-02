@@ -9,6 +9,7 @@
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "db:up": "docker compose up -d db",
-    "db:migrate": "pnpm --filter @cordio/api migration:run"
+    "db:migrate": "pnpm --filter @cordio/api migration:run",
+    "db:seed": "pnpm --filter @cordio/api seed"
   }
 }
