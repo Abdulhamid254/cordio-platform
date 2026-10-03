@@ -13,6 +13,30 @@ cp apps/web/.env.example apps/web/.env.local
 pnpm install
 pnpm db:up
 pnpm db:migrate
+pnpm db:seed      # optional: invented sample data for development only
 pnpm dev:api   # http://localhost:4000/api/docs
 pnpm dev:web   # http://localhost:3000
 ```
+
+## Structure
+
+```
+apps/api/src
+  config/            typed configuration and env validation
+  common/            shared DTOs and filters
+  database/          data source, migrations, seeds
+  modules/           one folder per domain (health, projects, sites, dashboard)
+apps/web/src
+  app/               routes (App Router)
+  components/        layout and reusable UI primitives
+  features/          feature-specific components (overview, projects, sites)
+  lib/ types/        API client, formatting helpers, API types
+```
+
+## Roadmap
+
+1. Legacy import pipeline (staging schema, import batches, quality flags)
+2. Authentication and role-based access (admin, data manager, researcher, partner, public)
+3. Survey events and observations screens, map explorer
+4. Data entry forms and bulk upload
+5. Exports (CSV, GeoJSON) and production hardening
