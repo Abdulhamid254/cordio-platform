@@ -10,12 +10,12 @@ Relational research database and stakeholder dashboard for CORDIO's conservation
 ```bash
 cp apps/api/.env.example apps/api/.env
 cp apps/web/.env.example apps/web/.env.local
-pnpm install
-pnpm db:up
-pnpm db:migrate
-pnpm db:seed      # optional: invented sample data for development only
-pnpm dev:api   # http://localhost:4000/api/docs
-pnpm dev:web   # http://localhost:3000
+npm install
+npm run db:up
+npm run db:migrate
+npm run db:seed      # optional: invented sample data for development only
+npm run dev:api   # http://localhost:4000/api/docs
+npm run dev:web   # http://localhost:3000
 ```
 
 ## Structure

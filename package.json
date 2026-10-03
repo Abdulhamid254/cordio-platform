@@ -2,14 +2,20 @@
   "name": "cordio-platform",
   "private": true,
   "version": "0.1.0",
-  "packageManager": "pnpm@9.12.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "dev:api": "pnpm --filter @cordio/api start:dev",
-    "dev:web": "pnpm --filter @cordio/web dev",
-    "build": "pnpm -r build",
-    "lint": "pnpm -r lint",
+    "dev:api": "npm run start:dev -w @cordio/api",
+    "dev:web": "npm run dev -w @cordio/web",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
     "db:up": "docker compose up -d db",
-    "db:migrate": "pnpm --filter @cordio/api migration:run",
-    "db:seed": "pnpm --filter @cordio/api seed"
+    "db:migrate": "npm run migration:run -w @cordio/api",
+    "db:seed": "npm run seed -w @cordio/api"
   }
 }
